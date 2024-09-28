@@ -17,7 +17,7 @@
         template: '<header><h1 v-on:click="handleClick">header</h1></header>',
         methods: {
           handleClick: function () {
-            console.log('[app-header]', 'handleClick()')
+            console.log('[app-header]', 'handleClick()', this)
             this.$emit('header-clicked')
           },
         },
@@ -30,7 +30,7 @@
         },
         methods: {
           handleClickHeader: function () {
-            console.log('[root]', 'handleClickHeader()')
+            console.log('[root]', 'handleClickHeader()', this)
           },
         },
       })
