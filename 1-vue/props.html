@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <app-header v-bind:user-info="message"></app-header>
+    </div>
+
+    <script>
+      /* TODO: props 속성 사용하기 */
+      const appHeader = {
+        template: '<header>{{ userInfo }}</header>',
+        props: ['userInfo'],
+      }
+
+      new Vue({
+        el: '#app',
+        components: {
+          'app-header': appHeader,
+        },
+        data: {
+          message: 'hello world',
+        },
+      })
+    </script>
+  </body>
+</html>
