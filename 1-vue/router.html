@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@2"></script>
+    <script src="https://unpkg.com/vue-router@3"></script>
+  </head>
+  <body>
+    <div id="app">
+      <nav>
+        <router-link to="/">Home</router-link>
+        <router-link to="/about">About</router-link>
+      </nav>
+      <router-view></router-view>
+    </div>
+
+    <script>
+      /* TODO: 뷰 라우터 사용하기 - router-view & router-link 활용 */
+      const HomePage = {
+        template: '<div>home page</div>',
+      }
+      const AboutPage = {
+        template: '<div>about page</div>',
+      }
+
+      const router = new VueRouter({
+        routes: [
+          { path: '/', component: HomePage },
+          { path: '/about', component: AboutPage },
+        ],
+      })
+
+      new Vue({
+        el: '#app',
+        router: router,
+      })
+    </script>
+  </body>
+</html>
