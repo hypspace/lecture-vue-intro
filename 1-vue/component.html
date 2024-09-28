@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <app-header></app-header>
+      <app-main></app-main>
+    </div>
+
+    <script>
+      /* TODO: 전역 및 지역 컴포넌트 등록하기 */
+
+      // - 전역 등록: Vue.component('이름', {내용})
+      Vue.component('app-header', {
+        template: '<header>app header</header>',
+      })
+      Vue.component('app-main', {
+        template: '<main>app content</main>',
+      })
+
+      new Vue({
+        el: '#app',
+      })
+    </script>
+  </body>
+</html>
