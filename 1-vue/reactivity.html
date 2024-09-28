@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script>
+      /* TODO: 화면에 문자열을 띄우고 업데이트하는 구문만들기(신) - Object.defineProperty 활용 */
+      var div = document.querySelector('div')
+
+      const obj = {}
+      Object.defineProperty(obj, 'property1', {
+        get: function () {
+          console.log('get()')
+        },
+        set: function (value) {
+          console.log('set()', value)
+          div.innerHTML = value
+        },
+      })
+
+      obj.property1 = 'hello world.'
+      obj.property1 = 'hello world..'
+      obj.property1 = 'hello world..!'
+    </script>
+  </body>
+</html>
