@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script>
+      /* TODO: reactivity.html 코드 라이브러리화(또는 모듈화) - IIFE 활용 */
+      ;(function () {
+        function init() {
+          var div = document.querySelector('div')
+
+          const viewModel = {}
+          Object.defineProperty(viewModel, 'property1', {
+            set: function (value) {
+              render(value)
+            },
+          })
+
+          function render(value) {
+            div.innerHTML = value
+          }
+
+          viewModel.property1 = 'Hello, World!'
+        }
+
+        init()
+      })()
+    </script>
+  </body>
+</html>

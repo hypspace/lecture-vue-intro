@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script>
+      /* TODO: 화면에 문자열을 띄우고 업데이트하는 구문만들기(구) */
+      var div = document.querySelector('#app')
+      var string = 'hello world'
+
+      div.innerHTML = string
+      string = 'hello world.'
+      div.innerHTML = string
+      string = 'hello world..'
+      div.innerHTML = string
+      string = 'hello world..!'
+      div.innerHTML = string
+    </script>
+  </body>
+</html>
