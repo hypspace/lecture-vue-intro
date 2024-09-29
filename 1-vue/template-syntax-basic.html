@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@2"></script>
+  </head>
+  <body>
+    <div id="app">
+      <span>{{num}}</span>
+      <span>{{doubleNum}}</span>
+    </div>
+
+    <script>
+      /* TODO: 템플릿 문법 사용하기 - 데이터 바인딩과 computed 속성*/
+      new Vue({
+        el: '#app',
+        data: {
+          num: 10,
+        },
+        computed: {
+          doubleNum: function () {
+            return this.num * 2
+          },
+        },
+      })
+    </script>
+  </body>
+</html>
