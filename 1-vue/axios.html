@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@2"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script>
+      /* TODO: 액시오스 사용하기 */
+      new Vue({
+        el: '#app',
+        data: {
+          users: [],
+        },
+        methods: {
+          fetchData: function () {
+            console.log('fetchData', this)
+            const vm = this // Vue
+            setTimeout(() => {
+              axios
+                .get('https://jsonplaceholder.typicode.com/posts')
+                .then(function (response) {
+                  console.log(['root'], 'fetchData()', response, this) // Window
+                  vm.users = response.data
+                  console.log(vm, vm.users) // Vue
+                })
+                .catch(function (error) {
+                  throw new Error(error)
+                })
+            }, 2500)
+          },
+        },
+        created: function () {
+          this.fetchData()
+        },
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@2"></script>
+  </head>
+  <body>
+    <div id="app">
+      <span>{{num}}</span>
+      <span>{{doubleNum}}</span>
+
+      <p
+        v-bind:id="uuid"
+        v-bind:class="{active: isActive, 'text-danger': hasError}"
+      >
+        lorem is
+      </p>
+
+      <div v-if="isLoading">loading...</div>
+      <div v-else="isLoading">has been logged in</div>
+
+      <p v-show="!isLoading">lorem</p>
+    </div>
+
+    <script>
+      /* TODO: 템플릿 문법 사용하기 - 데이터 바인딩과 computed 속성, 뷰 디렉티브와 v-bind, v-if와 v-show */
+      new Vue({
+        el: '#app',
+        data: {
+          num: 10,
+          uuid: 'special',
+          isActive: true,
+          hasError: false,
+          isLoading: true,
+        },
+        computed: {
+          doubleNum: function () {
+            return this.num * 2
+          },
+        },
+      })
+    </script>
+  </body>
+</html>

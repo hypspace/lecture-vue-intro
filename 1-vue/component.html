@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <app-header></app-header>
+      <app-main></app-main>
+      <app-footer></app-footer>
+      <app-aside></app-aside>
+    </div>
+
+    <script>
+      /* TODO: 전역 및 지역 컴포넌트 등록하기 */
+
+      // - 전역 등록: Vue.component('이름', {내용})
+      Vue.component('app-header', {
+        template: '<header>app header</header>',
+      })
+      Vue.component('app-main', {
+        template: '<main>app content</main>',
+      })
+
+      new Vue({
+        el: '#app',
+        // - 지역 등록: components: {'이름': {내용}}
+        components: {
+          'app-footer': {
+            template: '<footer>app footer</footer>',
+          },
+          'app-aside': {
+            template: '<aside>app aside</aside>',
+          },
+        },
+      })
+
+      // 지역 vs 전역 차이점과 용도
+      // - 지역 등록: 컴포넌트 기반 체계에서(SFC) 컴포넌트 속성으로 컴포넌트 하단에 어떤 컴포넌트가 있는지 알 수 있음
+      // - 전역 등록: 전역으로 사용해야 할 컴포넌트만 사용함(플러그인이나 라이브러리 형태로 된)
+      // - 전역 등록과는 다르게 지역 등록은 el 속성이 다른 경우 외부 인스턴스에 연결 불가능(해당 인스턴스에 다시 컴포넌트 생성해야 함)
+    </script>
+  </body>
+</html>
