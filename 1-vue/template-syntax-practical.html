@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@2"></script>
+  </head>
+  <body>
+    <div id="app">
+      <button v-on:click="handleClick">click me</button>
+      <span>{{num}}</span>
+    </div>
+
+    <script>
+      /* TODO: 템플릿 문법 실전 사용하기 - watch 속성 */
+      new Vue({
+        el: '#app',
+        data: {
+          num: 10,
+        },
+        watch: {
+          // num: function (newVal, oldVal) { console.log(['root:watch'], 'num', newVal, oldVal) },
+          num: {
+            handler(newVal, oldVal) {
+              console.log(['root:watch'], 'num', newVal, oldVal)
+            },
+            deep: true, // 중첩 속성도 감시
+            immediate: true, // 즉시 호출
+          },
+        },
+        methods: {
+          handleClick: function () {
+            console.log(['root'], 'handleClick()', this.num)
+            this.num++
+          },
+        },
+      })
+    </script>
+  </body>
+</html>
