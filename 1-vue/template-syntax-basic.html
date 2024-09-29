@@ -10,14 +10,24 @@
     <div id="app">
       <span>{{num}}</span>
       <span>{{doubleNum}}</span>
+
+      <p
+        v-bind:id="uuid"
+        v-bind:class="{active: isActive, 'text-danger': hasError}"
+      >
+        lorem is
+      </p>
     </div>
 
     <script>
-      /* TODO: 템플릿 문법 사용하기 - 데이터 바인딩과 computed 속성*/
+      /* TODO: 템플릿 문법 사용하기 - 데이터 바인딩과 computed 속성, 뷰 디렉티브와 v-bind */
       new Vue({
         el: '#app',
         data: {
           num: 10,
+          uuid: 'special',
+          isActive: true,
+          hasError: false,
         },
         computed: {
           doubleNum: function () {
